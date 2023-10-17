@@ -1,0 +1,30 @@
+<div class="card mb-5 mb-lg-0">
+    <div class="card-body">
+      <!-- Plan Type -->
+      <h5 class="card-title text-muted text-uppercase text-center">
+        {{ plan?.type }}
+      </h5>
+      <!-- Price -->
+      <h6 class="card-price text-center">
+        ${{ plan?.price }}<span class="period">/month</span>
+      </h6>
+      <hr />
+      <!-- Features list -->
+      <ul class="fa-ul">
+        <!-- class="{{ getBool(feature.included) ? notMuted : textMuted }}" -->
+        <li
+          *ngFor="let feature of plan?.features"
+          [ngClass]="{ 'text-muted': !feature.included }"
+        >
+          <span class="fa-li"
+            ><fa-icon [icon]="feature.included ? faCheck : faTimes"></fa-icon
+          ></span>
+          {{ feature.name }}
+        </li>
+      </ul>
+      <!-- Card Button -->
+      <div class="d-grid">
+        <a href="#" class="btn btn-primary text-uppercase">Button</a>
+      </div>
+    </div>
+  </div>
